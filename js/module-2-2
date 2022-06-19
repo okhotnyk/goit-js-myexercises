@@ -1,0 +1,110 @@
+// Checking how it works
+// const add = function () {
+//   console.log("виконання функції");
+// };
+
+// add();
+
+// ======= Max in the array ===========
+
+// function findBiggestNumber(firstArray) {
+//   let max = firstArray[0];
+//   for (const i of firstArray) {
+//     if (i > max) {
+//       max = i;
+//     }
+//   }
+//   console.log(max);
+// }
+
+// findBiggestNumber([4, 5, 122, 3, 455, 5, 8]);
+
+// =========== find a duplicate ==========
+
+// function findDuplicate(order) {
+//   let duplicates = [];
+//   for (let i = 0; i <= order.length; i += 1) {
+//     for (let j = 0; j <= order.length; j += 1) {
+//       if (
+//         order[i] === order[j] &&
+//         i !== j &&
+//         duplicates.includes(order[i]) === false
+//       ) {
+//         duplicates.push(order[j]);
+//       }
+//     }
+//   }
+//   console.log(duplicates);
+// }
+
+// findDuplicate([5, 1, 3, 5, 5, 7, 12, 12, 3]);
+
+// =========== game "Guess a number" ==========
+
+function numberGuess() {
+  let secretNumber = Math.floor(Math.random() * 10);
+  //   console.log(secretNumber);
+  const numberAttempts = 3;
+  let yourNumber = Number(
+    prompt(
+      `New Game!!! 
+      Guess the number I thought from 0 to 9. You have 3 ${properEnding(
+        numberAttempts,
+        "attempt"
+      )}`
+    )
+  );
+
+  for (let i = 0; i < 3; i += 1) {
+    if (Number(yourNumber) === secretNumber) {
+      console.log("Hurray!");
+      alert(
+        `You win!! You used only ${i + 1} ${properEnding(
+          i + 1,
+          "try"
+        )}!! You must be genius!`
+      );
+      return "Hurray!";
+    } else if (i < 2) {
+      yourNumber = prompt(
+        `Your number is too ${numberComparison(
+          yourNumber,
+          secretNumber
+        )}. Guess the number I thought - you have ${2 - i} more ${properEnding(
+          2 - i,
+          "attempt"
+        )}`
+      );
+    } else {
+      alert(
+        `You loose!! You used all your ${i + 1} attempts for nothing.
+        The number was ${secretNumber}! Try again!`
+      );
+    }
+  }
+}
+numberGuess();
+
+function numberComparison(a, b) {
+  if (a > b) {
+    console.log(`you entered ${a}, the secret number is smaller (${b})`);
+    return "big";
+  } else {
+    console.log(`you entered ${a}, the secret number is bigger (${b})`);
+    return "small";
+  }
+}
+
+function properEnding(a, checkedWord) {
+  console.log(a, checkedWord);
+  if (a > 1 && checkedWord === "try") {
+    return "tries";
+  } else if (a == 1 && checkedWord === "try") {
+    return "try";
+  }
+  if (a > 1) {
+    return `${checkedWord}s`;
+  } else if (a == 1) {
+    return `${checkedWord}`;
+  }
+}
