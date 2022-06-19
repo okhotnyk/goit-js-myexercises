@@ -1,9 +1,10 @@
 function numberGuess() {
   let secretNumber = Math.floor(Math.random() * 10 + 1);
   //   console.log(secretNumber);
-  const numberAttempts = prompt(
-    "Choose the number of attempts, but remember - more attempts - less points. 1 attempt - 1000 points, 5 - only 10 points"
-  );
+  // const numberAttempts = prompt(
+  //   "Choose the number of attempts, but remember - more attempts - less points. 1 attempt - 1000 points, 5 - only 10 points"
+  // );
+  const numberAttempts = 3;
   let yourNumber = Number(
     prompt(
       `New Game!!! 
