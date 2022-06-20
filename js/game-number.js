@@ -22,9 +22,7 @@ function numberGuess() {
         `You win!! You used only ${i + 1} ${properEnding(
           i + 1,
           "try"
-        )}!! You must be genius! You've got ${pointsCalc(
-          numberAttempts
-        )} points`
+        )}!! You must be genius! You've got ${pointsCalc(i + 1)} points`
       );
       return "Hurray!";
     } else if (i < numberAttempts - 1) {
@@ -72,18 +70,12 @@ function properEnding(a, checkedWord) {
   }
 }
 
-function pointsCalc(a, b) {
+function pointsCalc(a) {
   if (a == 1) {
     return 1000;
   } else if (a == 2) {
     return 500;
   } else if (a == 3) {
-    return 200;
-  } else if (a == 4) {
-    return 50;
-  } else if (a == 5) {
-    return 10;
-  } else if (a > 5) {
-    return 1;
+    return 100;
   }
 }
